@@ -4,6 +4,10 @@ from functools import wraps
 import json
 import os
 from datetime import datetime
+import os
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 app = Flask(__name__)
 app.secret_key = 'mukago_group_secret_key_2024'
