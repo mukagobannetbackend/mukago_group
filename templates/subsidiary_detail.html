@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}{{ subsidiary.name }} - Mukago Group{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="subsidiary-hero">
+    <img src="{{ subsidiary.image }}" alt="{{ subsidiary.name }}" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>{{ subsidiary.name }}</h1>
+        <p>{{ subsidiary.tagline }}</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="subsidiary-about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>About {{ subsidiary.name }}</h2>
+                <p>{{ subsidiary.description }}</p>
+                
+                {% if subsidiary_id == 'schools' %}
+                    <h3>Our Educational Divisions</h3>
+                    <div class="divisions-list">
+                        {% for key, division in subsidiary.divisions.items() %}
+                        <div class="division-item">
+                            <h4>{{ division }}</h4>
+                            <p>Providing world-class education and development opportunities.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h3>Our Services</h3>
+                    <ul class="services-list">
+                        {% for service in subsidiary.services %}
+                        <li><i class="fas fa-check-circle"></i> {{ service }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat-card">
+                    <h3>Excellence</h3>
+                    <p>Industry-leading standards and best practices</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Innovation</h3>
+                    <p>Cutting-edge solutions and forward-thinking approach</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Reliability</h3>
+                    <p>Trusted partner for long-term success</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Growth</h3>
+                    <p>Continuous expansion and market leadership</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="subsidiary-features">
+    <div class="container">
+        <h2>Why Choose {{ subsidiary.name }}?</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>Commitment to excellence in every aspect of our operations.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Expert Team</h3>
+                <p>Highly qualified professionals with years of industry experience.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Global Network</h3>
+                <p>International presence and partnerships across continents.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>Pioneering solutions and technological advancement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="subsidiary-cta">
+    <div class="container">
+        <h2>Get In Touch</h2>
+        <p>Ready to explore opportunities with {{ subsidiary.name }}?</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary">Contact Us</a>
+            <a href="/subsidiaries" class="btn btn-secondary">View All Subsidiaries</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

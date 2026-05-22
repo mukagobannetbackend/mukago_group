@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}Media & News - Mukago Group{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="media-hero">
+    <div class="container">
+        <h1>Media & News</h1>
+        <p>Stay updated with the latest from Mukago Group</p>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="news-section">
+    <div class="container">
+        <div class="news-filters">
+            <button class="filter-btn active" data-filter="all">All News</button>
+            <button class="filter-btn" data-filter="business">Business</button>
+            <button class="filter-btn" data-filter="technology">Technology</button>
+            <button class="filter-btn" data-filter="education">Education</button>
+            <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+        </div>
+        
+        <div class="news-list">
+            {% for article in news %}
+            <div class="news-item" data-category="{{ article.category.lower() }}">
+                <div class="news-header">
+                    <span class="news-category">{{ article.category }}</span>
+                    <span class="news-date">{{ article.date }}</span>
+                </div>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.excerpt }}</p>
+                <a href="#" class="read-more">Read Full Article →</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Press Releases -->
+<section class="press-releases">
+    <div class="container">
+        <h2>Press Releases</h2>
+        
+        <div class="press-grid">
+            <div class="press-card">
+                <h3>Mukago Group Announces Record Growth</h3>
+                <p class="press-date">May 20, 2024</p>
+                <p>Mukago Group reports strong financial performance with 45% year-over-year growth across all subsidiaries.</p>
+                <a href="#" class="press-link">Download PDF</a>
+            </div>
+            
+            <div class="press-card">
+                <h3>New Partnerships Announced</h3>
+                <p class="press-date">May 18, 2024</p>
+                <p>Strategic partnerships with leading international organizations to expand market reach and capabilities.</p>
+                <a href="#" class="press-link">Download PDF</a>
+            </div>
+            
+            <div class="press-card">
+                <h3>Sustainability Initiative Launch</h3>
+                <p class="press-date">May 15, 2024</p>
+                <p>Mukago Group commits to carbon neutrality by 2030 with comprehensive sustainability program.</p>
+                <a href="#" class="press-link">Download PDF</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media Gallery -->
+<section class="media-gallery">
+    <div class="container">
+        <h2>Media Gallery</h2>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="/static/images/hero_bg.png" alt="Mukago Headquarters">
+                <div class="gallery-overlay">
+                    <p>Corporate Headquarters</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="/static/images/capital_office.png" alt="Mukago Capital">
+                <div class="gallery-overlay">
+                    <p>Trading Floor</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="/static/images/properties_office.png" alt="Mukago Properties">
+                <div class="gallery-overlay">
+                    <p>Real Estate Office</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="/static/images/schools_campus.png" alt="Mukago Schools">
+                <div class="gallery-overlay">
+                    <p>Educational Campus</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="/static/images/manufacturers_factory.png" alt="Mutoto Manufacturers">
+                <div class="gallery-overlay">
+                    <p>Manufacturing Facility</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="/static/images/tech_hub.png" alt="Mukago Technologies">
+                <div class="gallery-overlay">
+                    <p>Technology Hub</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Media -->
+<section class="social-section">
+    <div class="container">
+        <h2>Follow Us</h2>
+        <p>Connect with Mukago Group on social media for latest updates</p>
+        
+        <div class="social-grid">
+            <a href="#" class="social-card">
+                <i class="fab fa-facebook-f"></i>
+                <h3>Facebook</h3>
+                <p>@MukagoGroup</p>
+            </a>
+            
+            <a href="#" class="social-card">
+                <i class="fab fa-twitter"></i>
+                <h3>Twitter</h3>
+                <p>@MukagoGroup</p>
+            </a>
+            
+            <a href="#" class="social-card">
+                <i class="fab fa-linkedin-in"></i>
+                <h3>LinkedIn</h3>
+                <p>Mukago Group</p>
+            </a>
+            
+            <a href="#" class="social-card">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>@MukagoGroup</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get the latest news and updates delivered to your inbox</p>
+        
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Filter news by category
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            document.querySelectorAll('.news-item').forEach(item => {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

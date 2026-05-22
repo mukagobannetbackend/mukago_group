@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - MUKAGOGroup{% endblock %}
+
+{% block content %}
+<!-- Dashboard Hero -->
+<section class="dashboard-hero">
+    <div class="container">
+        <h1>Welcome, {{ user_name }}!</h1>
+        <p>Your MUKAGOGroup Dashboard</p>
+    </div>
+</section>
+
+<!-- Dashboard Content -->
+<section class="dashboard-content">
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <nav class="dashboard-nav">
+                    <a href="#overview" class="nav-item active">
+                        <i class="fas fa-chart-line"></i> Overview
+                    </a>
+                    <a href="#profile" class="nav-item">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="#subsidiaries" class="nav-item">
+                        <i class="fas fa-building"></i> Subsidiaries
+                    </a>
+                    <a href="#documents" class="nav-item">
+                        <i class="fas fa-file"></i> Documents
+                    </a>
+                    <a href="#settings" class="nav-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <!-- Overview Section -->
+                <section id="overview" class="dashboard-section active">
+                    <h2>Dashboard Overview</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>5</h3>
+                                <p>Subsidiaries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>10,000+</h3>
+                                <p>Employees</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>50+</h3>
+                                <p>Countries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-box">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>$5B+</h3>
+                                <p>Assets</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-cards">
+                        <div class="card">
+                            <h3>Quick Access</h3>
+                            <div class="quick-links">
+                                <a href="/subsidiary/capital">Mukago Capital</a>
+                                <a href="/subsidiary/properties">Mukago Properties</a>
+                                <a href="/subsidiary/schools">Mukago Wallstreet Schools</a>
+                                <a href="/subsidiary/manufacturers">Mutoto Manufacturers</a>
+                                <a href="/subsidiary/technologies">Mukago Technologies</a>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Recent News</h3>
+                            <div class="news-list">
+                                <div class="news-item">
+                                    <p>Mukago Group Expands Global Operations</p>
+                                    <small>May 15, 2024</small>
+                                </div>
+                                <div class="news-item">
+                                    <p>Mukago Technologies Launches AI Platform</p>
+                                    <small>May 10, 2024</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Profile Section -->
+                <section id="profile" class="dashboard-section">
+                    <h2>User Profile</h2>
+                    
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profile-name">{{ user_name }}</h3>
+                                <p id="profile-email">Loading...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <label>Account Type</label>
+                                <p>Premium Member</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Member Since</label>
+                                <p>2024</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Status</label>
+                                <p><span class="status-badge active">Active</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Subsidiaries Section -->
+                <section id="subsidiaries" class="dashboard-section">
+                    <h2>Our Subsidiaries</h2>
+                    
+                    <div class="subsidiaries-list">
+                        <div class="subsidiary-item">
+                            <h3>Mukago Capital</h3>
+                            <p>Investment & Financial Services</p>
+                            <a href="/subsidiary/capital" class="btn btn-small">View</a>
+                        </div>
+                        
+                        <div class="subsidiary-item">
+                            <h3>Mukago Properties</h3>
+                            <p>Real Estate & Property Management</p>
+                            <a href="/subsidiary/properties" class="btn btn-small">View</a>
+                        </div>
+                        
+                        <div class="subsidiary-item">
+                            <h3>Mukago Wallstreet Schools</h3>
+                            <p>Education Excellence</p>
+                            <a href="/subsidiary/schools" class="btn btn-small">View</a>
+                        </div>
+                        
+                        <div class="subsidiary-item">
+                            <h3>Mutoto Manufacturers</h3>
+                            <p>Advanced Manufacturing Solutions</p>
+                            <a href="/subsidiary/manufacturers" class="btn btn-small">View</a>
+                        </div>
+                        
+                        <div class="subsidiary-item">
+                            <h3>Mukago Technologies</h3>
+                            <p>Digital Innovation & Solutions</p>
+                            <a href="/subsidiary/technologies" class="btn btn-small">View</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Documents Section -->
+                <section id="documents" class="dashboard-section">
+                    <h2>Documents</h2>
+                    
+                    <div class="documents-list">
+                        <div class="document-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <div class="document-info">
+                                <h4>Annual Report 2023</h4>
+                                <p>Comprehensive financial and operational report</p>
+                            </div>
+                            <a href="#" class="btn btn-small">Download</a>
+                        </div>
+                        
+                        <div class="document-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <div class="document-info">
+                                <h4>Sustainability Report 2023</h4>
+                                <p>Environmental and social responsibility initiatives</p>
+                            </div>
+                            <a href="#" class="btn btn-small">Download</a>
+                        </div>
+                        
+                        <div class="document-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <div class="document-info">
+                                <h4>Corporate Brochure</h4>
+                                <p>Overview of Mukago Group and its subsidiaries</p>
+                            </div>
+                            <a href="#" class="btn btn-small">Download</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Settings Section -->
+                <section id="settings" class="dashboard-section">
+                    <h2>Settings</h2>
+                    
+                    <div class="settings-card">
+                        <h3>Account Settings</h3>
+                        <div class="setting-item">
+                            <label>Email Notifications</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Newsletter Subscription</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Two-Factor Authentication</label>
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Danger Zone</h3>
+                        <a href="/logout" class="btn btn-danger">Logout</a>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Load user profile
+    async function loadProfile() {
+        try {
+            const response = await fetch('/api/user/profile');
+            const data = await response.json();
+            document.getElementById('profile-email').textContent = data.email;
+        } catch (error) {
+            console.error('Error loading profile:', error);
+        }
+    }
+    
+    // Dashboard navigation
+    document.querySelectorAll('.dashboard-nav .nav-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.dashboard-nav .nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+            
+            document.querySelector(target).classList.add('active');
+            this.classList.add('active');
+        });
+    });
+    
+    loadProfile();
+</script>
+{% endblock %}

@@ -1,0 +1,497 @@
+/* ==================== Auth Styles ==================== */
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #ffd700;
+    --dark-bg: #0a0e27;
+    --darker-bg: #050812;
+    --card-bg: #1a1f3a;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent-gold: #d4af37;
+    --accent-cyan: #00d4ff;
+    --border-color: #2a3050;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.auth-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ==================== Background Animation ==================== */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-cyan);
+    top: -100px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-gold);
+    bottom: -50px;
+    left: -50px;
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+.blob-3 {
+    width: 350px;
+    height: 350px;
+    background: var(--accent-cyan);
+    top: 50%;
+    left: 50%;
+    animation: float 12s ease-in-out infinite 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(30px, -50px);
+    }
+    66% {
+        transform: translate(-20px, 20px);
+    }
+}
+
+/* ==================== Auth Container ==================== */
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    max-height: 600px;
+    gap: 0;
+    z-index: 10;
+}
+
+.auth-card {
+    background: rgba(26, 31, 58, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px 0 0 12px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.auth-info {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 0 12px 12px 0;
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.info-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.info-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.info-content p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.info-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.info-feature i {
+    font-size: 24px;
+    color: var(--accent-cyan);
+}
+
+.info-feature span {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ==================== Logo Section ==================== */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.logo-letter {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--darker-bg);
+}
+
+.auth-logo h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: var(--text-light);
+}
+
+.auth-logo p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ==================== Form Styles ==================== */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    color: var(--accent-cyan);
+    font-size: 16px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    background: rgba(0, 212, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-muted);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--accent-cyan);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: var(--accent-gold);
+}
+
+.form-group small {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ==================== Form Options ==================== */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.remember-me input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--accent-cyan);
+}
+
+.forgot-password {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--accent-gold);
+}
+
+/* ==================== Auth Button ==================== */
+.auth-btn {
+    padding: 14px 20px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+    color: var(--darker-bg);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+/* ==================== Messages ==================== */
+.error-message, .success-message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+.success-message {
+    background: rgba(51, 217, 178, 0.1);
+    color: #33d9b2;
+    border: 1px solid rgba(51, 217, 178, 0.3);
+}
+
+.success-message:not(:empty) {
+    display: block;
+}
+
+/* ==================== Divider ==================== */
+.form-divider {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* ==================== Footer ==================== */
+.auth-footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--accent-gold);
+}
+
+/* ==================== Demo Credentials ==================== */
+.demo-credentials {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.demo-credentials p {
+    margin: 5px 0;
+}
+
+.demo-credentials strong {
+    color: var(--accent-cyan);
+}
+
+.demo-credentials code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-gold);
+    font-family: 'Courier New', monospace;
+}
+
+/* ==================== Terms Check ==================== */
+.terms-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.terms-check input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--accent-cyan);
+}
+
+.terms-check span {
+    line-height: 1.4;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 768px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        max-height: none;
+    }
+    
+    .auth-card {
+        border-radius: 12px 12px 0 0;
+        padding: 40px 30px;
+    }
+    
+    .auth-info {
+        border-radius: 0 0 12px 12px;
+        padding: 40px 30px;
+        min-height: 200px;
+    }
+    
+    .info-content h2 {
+        font-size: 24px;
+    }
+    
+    .logo-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-letter {
+        font-size: 30px;
+    }
+    
+    .auth-logo h1 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - MUKAGOGroup{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Get in touch with MUKAGOGroup</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2>Send us a Message</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Address</h3>
+                        <p>wallstreet <br>kihihi City, Po Box ...<br>Global</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p>+(256) 789635687<br>+1 (256) 79238874</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>info@mukagogroup.com<br>support@mukagogroup.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Departments -->
+<section class="departments">
+    <div class="container">
+        <h2>Department Contacts</h2>
+        
+        <div class="departments-grid">
+            <div class="dept-card">
+                <h3>MukagoCapital and finance</h3>
+                <p>Email: capital@mukagogroup.com</p>
+                <p>Phone: +(256) 789635687</p>
+            </div>
+            
+            <div class="dept-card">
+                <h3>Mukago Properties</h3>
+                <p>Email: properties@mukagogroup.com</p>
+                <p>Phone: </p>
+            </div>
+            
+            <div class="dept-card">
+                <h3>Mukago Wallstreet Schools</h3>
+                <p>Email: schools@mukagogroup.com</p>
+                <p>Phone:+(256) 789635687</p>
+            </div>
+            
+            <div class="dept-card">
+                <h3>Mutoto Manufacturers</h3>
+                <p>Email: manufacturing@mukagogroup.com</p>
+                <p>Phone: +(256) 789635687</p>
+            </div>
+            
+            <div class="dept-card">
+                <h3>Mukago Technologies</h3>
+                <p>Email: tech@mukagogroup.com</p>
+                <p>Phone: +(256) 789635687</p>
+            </div>
+            
+            <div class="dept-card">
+                <h3>Human Resources</h3>
+                <p>Email: careers@mukagogroup.com</p>
+                <p>Phone: +(256) 789635687</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjIiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        try {
+            const response = await fetch('/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await response.json();
+            const messageDiv = document.getElementById('form-message');
+            
+            if (data.success) {
+                messageDiv.textContent = 'Message sent successfully! We will get back to you soon.';
+                messageDiv.className = 'form-message success';
+                this.reset();
+            } else {
+                messageDiv.textContent = 'Failed to send message. Please try again.';
+                messageDiv.className = 'form-message error';
+            }
+        } catch (error) {
+            document.getElementById('form-message').textContent = 'An error occurred. Please try again.';
+            document.getElementById('form-message').className = 'form-message error';
+        }
+    });
+</script>
+{% endblock %}

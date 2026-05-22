@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Mukago Group - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to MUKAGOGroup</h1>
+        <p>Innovation | Integration | Elevation</p>
+        <p class="hero-subtitle">Diverse business excellence across finance, real estate, education, manufacturing, and technology.</p>
+        <div class="hero-buttons">
+            <a href="/subsidiaries" class="btn btn-primary">Explore Subsidiaries</a>
+            <a href="/about" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="/static/images/hero_bg.png" alt="Mukago Group Headquarters">
+    </div>
+</section>
+
+<!-- Subsidiaries Overview -->
+<section class="subsidiaries-overview">
+    <div class="container">
+        <h2>Our Subsidiaries</h2>
+        <p class="section-subtitle">Explore our diverse portfolio of world-class companies</p>
+        
+        <div class="subsidiaries-grid">
+            {% for key, subsidiary in subsidiaries.items() %}
+            <div class="subsidiary-card">
+                <div class="card-image">
+                    <img src="{{ subsidiary.image }}" alt="{{ subsidiary.name }}">
+                </div>
+                <div class="card-content">
+                    <h3>{{ subsidiary.name }}</h3>
+                    <p class="card-tagline">{{ subsidiary.tagline }}</p>
+                    <p class="card-description">{{ subsidiary.description[:100] }}...</p>
+                    <a href="/subsidiary/{{ key }}" class="card-link">Learn More →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2>Why Choose MUKAGOGroup?</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Global Reach</h3>
+                <p>Operating across multiple continents with a strong international presence and network.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>Constantly pushing boundaries with cutting-edge solutions and forward-thinking strategies.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Expert Team</h3>
+                <p>Talented professionals dedicated to excellence and customer satisfaction.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Excellence</h3>
+                <p>Recognized industry leaders with numerous awards and accolades.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="statistics">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5</h3>
+                <p>Subsidiaries</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Countries</p>
+            </div>
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>Employees</p>
+            </div>
+            <div class="stat-item">
+                <h3>$5B+</h3>
+                <p>Assets</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest News -->
+<section class="latest-news">
+    <div class="container">
+        <h2>Latest News</h2>
+        <p class="section-subtitle">Stay updated with MUKAGOGroup</p>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-date">May 15, 2024</div>
+                <h3>Mukago Group Expands Global Operations</h3>
+                <p>Mukago Group announces expansion into 5 new markets across Africa and Asia.</p>
+                <a href="/media" class="news-link">Read More →</a>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">May 10, 2024</div>
+                <h3>Mukago Technologies Launches TECH Platform</h3>
+                <p>Revolutionary TECH platform designed for enterprise solutions and digital transformation.</p>
+                <a href="/media" class="news-link">Read More →</a>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">May 5, 2024</div>
+                <h3>Mukago Wallstreet Schools Achieves 98% Pass Rate</h3>
+                <p>Students excel in national examinations with outstanding academic performance.</p>
+                <a href="/media" class="news-link">Read More →</a>
+            </div>
+        </div>
+        
+        <div class="view-all">
+            <a href="/media" class="btn btn-primary">View All News</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Join MUKAGOGroup?</h2>
+        <p>Explore opportunities and become part of our growing family.</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary">Get In Touch</a>
+            <a href="/login" class="btn btn-secondary">Login</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
