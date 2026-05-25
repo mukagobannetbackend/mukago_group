@@ -22,7 +22,7 @@
 <!-- Subsidiaries Overview -->
 <section class="subsidiaries-overview">
     <div class="container">
-        <h2>Our Subsidiaries</h2>
+        <h1>Our Subsidiaries</h1>
         <p class="section-subtitle">Explore our diverse portfolio of world-class companies</p>
         
         <div class="subsidiaries-grid">
@@ -32,6 +32,12 @@
                     <img src="{{ subsidiary.image }}" alt="{{ subsidiary.name }}">
                 </div>
                 <div class="card-content">
+                    <h3>{{ subsidiary.name }}</h3>
+                    <p class="card-tagline">{{ subsidiary.tagline }}</p>
+                    <p class="card-description">{{ subsidiary.description[:100] }}...</p>
+                    <a href="/subsidiary/{{ key }}" class="card-link">Learn More →</a>
+                </div>
+                 <div class="card-content">
                     <h3>{{ subsidiary.name }}</h3>
                     <p class="card-tagline">{{ subsidiary.tagline }}</p>
                     <p class="card-description">{{ subsidiary.description[:100] }}...</p>
@@ -54,7 +60,7 @@
                     <i class="fas fa-globe"></i>
                 </div>
                 <h3>Global Reach</h3>
-                <p>Operating across multiple continents with a strong international presence and network.</p>
+                <p>Operating across multiple African countries with a strong trans continental presence and network.</p>
             </div>
             
             <div class="feature-card">
